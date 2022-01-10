@@ -12,7 +12,8 @@ import (
 
 func pResponse(w http.ResponseWriter, r *http.Request) {
 	reqBody, _ := ioutil.ReadAll(r.Body)
-	fmt.Print(string(reqBody))
+	p := string(reqBody)
+	fmt.Print(p)
 
 }
 
@@ -25,4 +26,5 @@ func main() {
 	//Router handler
 	r.HandleFunc("/api/responses", pResponse).Methods("POST")
 	log.Fatal(http.ListenAndServe(":"+port, r))
+	log.Fatal(http.ListenAndServe(":3000", r))
 }
