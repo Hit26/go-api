@@ -24,5 +24,5 @@ func main() {
 
 	//Router handler
 	r.HandleFunc("/api/responses", pResponse).Methods("POST")
-	log.Fatal(http.ListenAndServe(port, r))
+	log.Fatal(http.ListenAndServe(":"+port, r))
 }
