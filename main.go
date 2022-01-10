@@ -14,6 +14,7 @@ func pResponse(w http.ResponseWriter, r *http.Request) {
 	reqBody, _ := ioutil.ReadAll(r.Body)
 	p := string(reqBody)
 	fmt.Print(p)
+	log.Print(p)
 
 }
 
