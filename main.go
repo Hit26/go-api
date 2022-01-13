@@ -15,13 +15,14 @@ var res string
 func pResponse(w http.ResponseWriter, r *http.Request) {
 	reqBody, _ := ioutil.ReadAll(r.Body)
 	res = string(reqBody)
-	fmt.Print(res)
+	//fmt.Print(res)
+	fmt.Fprintf(w, res)
 
 }
 
 func gResponse(w http.ResponseWriter, r *http.Request) {
 	//json.NewEncoder(w).Encode(res)
-	fmt.Print(res)
+	//fmt.Print(res)
 	fmt.Fprintf(w, res)
 }
 
@@ -32,8 +33,8 @@ func main() {
 	r := mux.NewRouter()
 
 	//Router handler
-	r.HandleFunc("/api/responses", gResponse).Methods("GET")
-	r.HandleFunc("/api/responses", pResponse).Methods("POST")
+	r.HandleFunc("/api/Presponses", gResponse).Methods("GET")
+	r.HandleFunc("/api/Gresponses", pResponse).Methods("POST")
 	log.Fatal(http.ListenAndServe(":"+port, r))
 	//log.Fatal(http.ListenAndServe(":3000", r))
 }
