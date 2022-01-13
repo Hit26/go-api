@@ -33,8 +33,8 @@ func main() {
 	r := mux.NewRouter()
 
 	//Router handler
-	r.HandleFunc("/api/Presponses", gResponse).Methods("GET")
-	r.HandleFunc("/api/Gresponses", pResponse).Methods("POST")
+	r.HandleFunc("/api/Gresponses", gResponse).Methods("GET")
+	r.HandleFunc("/api/Presponses", pResponse).Methods("POST")
 	log.Fatal(http.ListenAndServe(":"+port, r))
 	//log.Fatal(http.ListenAndServe(":3000", r))
 }
