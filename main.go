@@ -20,12 +20,6 @@ func pResponse(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func gResponse(w http.ResponseWriter, r *http.Request) {
-	//json.NewEncoder(w).Encode(res)
-	//fmt.Print(res)
-	fmt.Fprintf(w, res)
-}
-
 func main() {
 
 	port := os.Getenv("PORT")
@@ -33,8 +27,7 @@ func main() {
 	r := mux.NewRouter()
 
 	//Router handler
-	r.HandleFunc("/api/Gresponses", gResponse).Methods("GET")
-	r.HandleFunc("/api/Presponses", pResponse).Methods("POST")
+	r.HandleFunc("/api/responses", pResponse).Methods("POST")
 	log.Fatal(http.ListenAndServe(":"+port, r))
 	//log.Fatal(http.ListenAndServe(":3000", r))
 }
